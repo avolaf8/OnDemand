@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Slow",
+        "price": 10000
+    },
+    {
+        "name": "Medium",
+        "price": 20000
+    },
+    {
+        "name": "Fast",
+        "price": 50000
+    }
+]

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Item</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b5ee560b9a.js" crossorigin="anonymous"></script>
+    <%- include('style/css') %>
+</head>
+
+<body>
+
+    <div style="padding: 5vw 25vw;">
+        <div class="header__title-container">
+            <h1 class="header__title">Ngirim bro<img class="header__title-logo" alt="Mercury Delivery logo"></h1>
+        </div>
+        <h2 class="header__info">Edit items <span class="header__span">paket</span></h2>
+        <img src="./svg/arrow-down.svg" alt="" class="scroll">
+        <form method="post" action="/user/<%= userId %>/edit/<%= item.data.id %>">
+            <div class="mb-3">
+
+                <input name="name" type="text" class="contact__container" value="<%= item.data.name %>"
+                    placeholder="Name">
+            </div>
+            <div class="mb-3">
+
+                <input name="description" type="text" class="contact__container" id="exampleInputPassword1"
+                    value="<%= item.data.description %>" placeholder="Description">
+            </div>
+            <div class="mb-3">
+
+                <input name="imgUrl" type="text" class="contact__container" id="exampleInputPassword1"
+                    value="<%= item.data.imgUrl %>" placeholder="Image Url">
+            </div>
+            <div class="mb-3">
+
+                <select name="CategoryId" id="" class="contact__container">
+                    <option disabled selected value="">Choose Category</option>
+                    <% item.category.forEach(element=> { %>
+                        <option <%=item.data.CategoryId===element.id?'selected':'' %> value="<%= element.id %>"><%=
+                                    element.name %>
+                        </option>
+                        <% }) %>
+                </select>
+            </div>
+            <button type="submit" class="header__button"><a class="header__btn-text">Sumbit</a>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
